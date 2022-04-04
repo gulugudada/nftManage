@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nftmanage.nftmanage.dao.AccountMapper">
+    <select id="findAllAccount" resultType="com.nftmanage.nftmanage.entity.Account">
+        select * from account
+    </select>
+    <select id="findAccountByPhone" parameterType="String" resultType="Integer">
+        select count(*) from account where phone = #{phone}
+    </select>
+    <select id="findPasswordByPhone" parameterType="String" resultType="String">
+        select password from account where phone = #{phone}
+    </select>
+    <select id="findUserNameByPhone" parameterType="String" resultType="String">
+        select username from account where phone = #{phone}
+    </select>
+    <select id="findAccountByUserName" parameterType="String" resultType="Integer">
+        select count(*) from account where username = #{username}
+    </select>
+    <!--主键回填-->
+    <insert id="addAccount" parameterType="com.nftmanage.nftmanage.entity.Account" useGeneratedKeys="true" keyProperty="id">
+        insert into account (phone,username,password) values (#{phone},#{username},#{password})
+    </insert>
+    <update id="updateUserName" parameterType="com.nftmanage.nftmanage.entity.Account">
+        update account set username = #{username} where phone = #{phone}
+    </update>
+    <update id="updatePassword" parameterType="com.nftmanage.nftmanage.entity.Account">
+        update account set password = #{password} where phone = #{phone}
+    </update>
+</mapper>

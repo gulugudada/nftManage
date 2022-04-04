@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nftmanage.nftmanage.dao.CommodityMapper">
+    <select id="findAllCommodity" parameterType="Integer" resultType="com.nftmanage.nftmanage.entity.Commodity">
+        select * from commodity limit #{pagenum},20
+    </select>
+    <select id="findCommodityCount" resultType="Integer">
+        select count(*) from commodity
+    </select>
+    <select id="findCommodityByName" parameterType="String" resultType="com.nftmanage.nftmanage.entity.Commodity">
+        select * from commodity where name = #{name}
+    </select>
+</mapper>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nftmanage.nftmanage.dao.ManageAccountMapper">
+    <select id="findAllManageAccount" resultType="com.nftmanage.nftmanage.entity.ManageAccount">
+        select * from manageaccount
+    </select>
+    <select id="findAllAccount" parameterType="Integer" resultType="com.nftmanage.nftmanage.entity.Account">
+        select * from account limit #{pagenum},5
+    </select>
+    <select id="findManageAccountByPhone" parameterType="String" resultType="Integer">
+        select count(*) from manageaccount where phone = #{phone}
+    </select>
+    <select id="findPasswordByPhone" parameterType="String" resultType="String">
+        select password from manageaccount where phone = #{phone}
+    </select>
+    <select id="findUserNameByPhone" parameterType="String" resultType="String">
+        select username from manageaccount where phone = #{phone}
+    </select>
+    <update id="updateManagePassword" parameterType="String">
+        update manageaccount set password = #{password} where phone = #{phone}
+    </update>
+    <update id="updateManageUsername" parameterType="String">
+        update manageaccount set username = #{username} where phone = #{phone}
+    </update>
+    <select id="findUsernameIsUse" parameterType="String" resultType="Integer">
+        select count(*) from manageaccount where username = #{username}
+    </select>
+    <insert id="addManageAccount" parameterType="com.nftmanage.nftmanage.entity.ManageAccount" useGeneratedKeys="true" keyProperty="id">
+        insert into manageaccount (phone,username,password) values (#{phone},#{username},#{password})
+    </insert>
+    <select id="findAccountCount" resultType="Integer">
+        select count(*) from account
+    </select>
+</mapper>

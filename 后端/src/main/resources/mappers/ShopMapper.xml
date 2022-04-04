@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nftmanage.nftmanage.dao.ShopMapper">
+    <select id="findAllShop" parameterType="Integer" resultType="com.nftmanage.nftmanage.entity.Shop">
+        select * from shop limit #{pagenum},4
+    </select>
+    <select id="findShopCount" resultType="Integer">
+        select count(*) from shop
+    </select>
+</mapper>

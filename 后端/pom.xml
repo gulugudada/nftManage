@@ -96,15 +96,26 @@
             <artifactId>velocity-engine-core</artifactId>
             <version>2.2</version>
         </dependency>
-        <!--- redis依赖 -->
+        <!-- redis -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!--spring2.X集成redis所需common-pool2-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.6.0</version>
         </dependency>
         <!--- web3j -->
         <dependency>
             <groupId>org.web3j</groupId>
             <artifactId>core</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.web3j</groupId>
+            <artifactId>codegen</artifactId>
             <version>5.0.0</version>
         </dependency>
         <dependency>
@@ -117,6 +128,11 @@
             <artifactId>geth</artifactId>
             <version>5.0.0</version>
             <scope>compile</scope>
+        </dependency>
+        <!--- Netty -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
         </dependency>
     </dependencies>
 

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.nftmanage.nftmanage.dao.CommodityMapper">
     <select id="findAllCommodity" parameterType="Integer" resultType="com.nftmanage.nftmanage.entity.Commodity">
-        select * from commodity limit #{pagenum},20
+        select * from commodity
     </select>
     <select id="findCommodityCount" resultType="Integer">
         select count(*) from commodity
@@ -10,4 +10,19 @@
     <select id="findCommodityByName" parameterType="String" resultType="com.nftmanage.nftmanage.entity.Commodity">
         select * from commodity where name = #{name}
     </select>
+    <select id="findCommodityByOwner" parameterType="String" resultType="com.nftmanage.nftmanage.entity.Commodity">
+        select * from commodity where owner = #{owner}
+    </select>
+    <insert id="addCommodity" parameterType="com.nftmanage.nftmanage.entity.Commodity">
+        insert into commodity (name,owner,saletime,price,tokenid,tokenURI,indexid,privatekey) values (#{name},#{owner},#{saletime},#{price},#{tokenid},#{tokenURI},#{indexid},#{privatekey})
+    </insert>
+    <delete id="deleteCommodity" parameterType="Integer">
+        delete commodity where tokenid = #{tokenid}
+    </delete>
+    <select id="findPriceAndPrivateKeyByTokenId" parameterType="Integer" resultType="com.nftmanage.nftmanage.entity.Commodity">
+        select * from commodity where tokenid = #{tokenid}
+    </select>
+    <update id="updateCommodity" parameterType="com.nftmanage.nftmanage.entity.Commodity">
+        update commodity set owner = #{owner},indexid = #{indexid},privatekey = #{privatekey} where tokenid = #{tokenid}
+    </update>
 </mapper>

@@ -20,9 +20,9 @@ public class ETHConfig {
     @Bean
     public Web3j web3j() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        builder.connectTimeout(30*1000, TimeUnit.MILLISECONDS);
-        builder.writeTimeout(30*1000, TimeUnit.MILLISECONDS);
-        builder.readTimeout(30*1000, TimeUnit.MILLISECONDS);
+        builder.connectTimeout(60*1000, TimeUnit.MILLISECONDS);
+        builder.writeTimeout(60*1000, TimeUnit.MILLISECONDS);
+        builder.readTimeout(60*1000, TimeUnit.MILLISECONDS);
         OkHttpClient httpClient = builder.build();
         Web3j web3j = Web3j.build(new HttpService(rpc,httpClient,false));
         return web3j;
@@ -31,9 +31,9 @@ public class ETHConfig {
     @Bean
     public Admin admin() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        builder.connectTimeout(30 * 1000, TimeUnit.MILLISECONDS);
-        builder.writeTimeout(30 * 1000, TimeUnit.MILLISECONDS);
-        builder.readTimeout(30 * 1000, TimeUnit.MILLISECONDS);
+        builder.connectTimeout(60 * 1000, TimeUnit.MILLISECONDS);
+        builder.writeTimeout(60 * 1000, TimeUnit.MILLISECONDS);
+        builder.readTimeout(60 * 1000, TimeUnit.MILLISECONDS);
         OkHttpClient httpClient = builder.build();
         Admin admin = Admin.build(new HttpService(rpc, httpClient, false));
         return admin;
@@ -42,9 +42,9 @@ public class ETHConfig {
     @Bean
     public Geth geth() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        builder.connectTimeout(30 * 1000, TimeUnit.MILLISECONDS);
-        builder.writeTimeout(30 * 1000, TimeUnit.MILLISECONDS);
-        builder.readTimeout(30 * 1000, TimeUnit.MILLISECONDS);
+        builder.connectTimeout(60 * 1000, TimeUnit.MILLISECONDS);
+        builder.writeTimeout(60 * 1000, TimeUnit.MILLISECONDS);
+        builder.readTimeout(60 * 1000, TimeUnit.MILLISECONDS);
         OkHttpClient httpClient = builder.build();
         Geth geth = Geth.build(new HttpService(rpc, httpClient, false));
         return geth;
